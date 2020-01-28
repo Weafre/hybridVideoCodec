@@ -1,0 +1,21 @@
+function [quantizedFrame]=iRLC(seq,blocksize,frSize)
+quantizedFrame=[];
+length=size(seq,1);
+vBlock=0;
+hBlock=0;
+vBlockMax=frSize(2)/blocksize;
+hBlockMax=frSize(1)/blocksize;
+for i=1:length
+if(seq(i,1)==0 && seq(i,2)==0)
+    tmp=seq(1:i,:);
+    iRLC=Run_length(tmp,'dec');
+    izzMtrx=izigzag(iRLC,blocksize,blocksize);
+    quantizedFrame[hBlock*blocksize+1:hBlock*blocksize+blocksize,vBlock*blocksize:vBlock*blocksize+blocksize] = izzMtrx;
+    if(vBlock==vBlockmax)
+        vBlock=1;
+        hBlock=hBlock+1;
+    else
+        vBlock=vBlock+1;
+    end
+end
+end
