@@ -34,7 +34,7 @@ ycbcr(:,:,3,i+1) = V';
 
 if nargout>1
  rgb(:,:,:,i+1) = colorTransform(ycbcr(:,:,:,i+1));
- grayscale(:,:,:,i+1)=rgb2gray(rgb(:,:,:,i+1));
+ grayscale(:,:,i+1)=rgb2gray(rgb(:,:,:,i+1));
 end
 end
 

@@ -1,5 +1,4 @@
-function y=block_quantizer(x,blockSize,q_mtx)
-
+function [y]=block_quantizer(x,blockSize,q_mtx)
 
 for i=1:blockSize:size(x,1)-blockSize+1
         for j=1:blockSize:size(x,2)-blockSize+1
