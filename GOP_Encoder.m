@@ -20,7 +20,7 @@ while(isRemainingGOPFrame)
         [quantized_frames(:,:,currentFrameIdx),MSEs_X(currentFrameIdx)] = IntraCoding(frames(:,:,currentFrameIdx),8,q_mtx);
         encodedFrame = currentFrameIdx;
     else 
-        %interCoding(frames(currentFrameIdx));
+        interCoding(frames(currentFrameIdx));
         encodedFrame = encodedFrame+1;
     end;
     if(encodedFrame==GOP)
