@@ -1,27 +1,28 @@
 %% Defining global variables
 totalFrame=100;
-numberOfFrames2Encode = 50;
-GOP = 6;
+numberOfFrames2Encode = 1;
+GOP = 1;
 startingFrame=1;
 isRemainingFrame = true;
 encodedFrame=0;
+bitstream=[];
+dict=load('dict.mat');
+dict=dict.dict;
 %% Encoding frames
 while(isRemainingFrame)
-if encodedFrame+GOP>totalFrame
+if encodedFrame+GOP>numberOfFrames2Encode
     sprintf('Encoding finished')
     isRemainingFrame=false;
 else 
-[ycbcr,rgb,grayimg] = getCifYUVframe('videos/foreman_cif.yuv',startingFrame+encodedFrame,GOP);
-grayimg=grayimg*255;
+[grayimg] = getCifYUVframe('videos/foreman_cif.yuv',startingFrame+encodedFrame,GOP);
+%grayimg=grayimg*255;
 %figure; imshow(gray);
-[GOP_bitstream,MSEs_X] = GOP_Encoder(grayimg,GOP);
+[GOP_bitstream] = GOP_Encoder(grayimg,GOP,dict);
+sprintf('encoding frame %d',encodedFrame)
+bitstream=[bitstream GOP_bitstream];
 encodedFrame = encodedFrame + GOP;
-%figure(1)
-%image(uint8(main_decoder(GOP_bitstream(:,:,1),8,GOP)));
-%colormap(gray(256));
-%axis image
-%pause(1/30);
+
 end;
 end
-
+save bitstream;
 

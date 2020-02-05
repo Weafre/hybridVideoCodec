@@ -30,7 +30,7 @@ if type =='enc'
     
 else
     %n=sum(S(:,1))+size(S,1)-1;
-    n=64;
+    n=65;
     sym=zeros(1,n);
     idx2=[];
     for i=1:size(S,1)

@@ -1,4 +1,4 @@
-function [bitstream,quantized_frames,MSEs_X] = GOP_Encoder(frames,GOP)
+function [bitstream,quantized_frames] = GOP_Encoder(frames,GOP,dict)
 
 isRemainingGOPFrame=true;
 encodedFrame=0;
@@ -13,11 +13,12 @@ encodedFrame=0;
              72 92 95 98 112 100 103 99];
 quantized_frames=zeros(size(frames));
 MSEs_X=zeros(GOP);
+
 while(isRemainingGOPFrame)
     currentFrameIdx=encodedFrame+1;
     
     if(encodedFrame == 0)
-        [bitstream,quantized_frames(:,:,currentFrameIdx),MSEs_X(currentFrameIdx)] = IntraCoding(frames(:,:,currentFrameIdx),8,q_mtx);
+        [bitstream,quantized_frames(:,:,currentFrameIdx),MSEs_X(currentFrameIdx)] = IntraCoding(frames(:,:,currentFrameIdx),8,q_mtx,dict);
         encodedFrame = currentFrameIdx;
     else 
         interCoding(frames(currentFrameIdx));

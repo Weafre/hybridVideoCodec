@@ -1,9 +1,9 @@
-function f=block_idct_frame(x,blocksize)
+function [f]=block_idct_frame(x,blocksize)
 
 % need to be modified to handle special cases, image size
 % we could use instead XQ = blkproc(TINV, [blockSize blockSize], @idct2);
 
-
+%size(x)
 
 f=zeros(size(x));
 
@@ -13,4 +13,5 @@ for i=1:blocksize:size(x,1)-blocksize+1
         
         end
     
+end
 end

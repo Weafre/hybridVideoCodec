@@ -1,4 +1,4 @@
-function [bitstream,quantized_frame,MSE_X]=IntraCoding(current_frame,blockSize,q_mtx)
+function [bitstream,quantized_frame,MSE_X]=IntraCoding(current_frame,blockSize,q_mtx,dict)
 
 
 % input_bpp = 8; % bits per pixel
@@ -23,7 +23,7 @@ function [bitstream,quantized_frame,MSE_X]=IntraCoding(current_frame,blockSize,q
 T_DCT=block_dct_frame(current_frame,blockSize);
 
 quantized_frame=block_quantizer(T_DCT,blockSize,q_mtx);
-bitstream=RLC(quantized_frame,blocksize,dict);
+bitstream=RLC(quantized_frame,blockSize,dict);
 rev_quantized_frame=reverse_block_quantizer(quantized_frame,blockSize,q_mtx);
 
 XQ=block_idct_frame(rev_quantized_frame,blockSize);
