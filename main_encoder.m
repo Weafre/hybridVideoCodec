@@ -1,6 +1,6 @@
 %% Defining global variables
 totalFrame=100;
-numberOfFrames2Encode = 1;
+numberOfFrames2Encode = 2;
 GOP = 1;
 startingFrame=1;
 isRemainingFrame = true;

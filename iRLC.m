@@ -10,7 +10,7 @@ lastEnding=0;
 length=size(seq,1);
 frIdx=0;
 isRemainingFrame=true;
-sprintf('starting decoding')
+%sprintf('starting decoding')
 for i=bitIdx:length
         if(seq(i,1)==0 && seq(i,2)==0)
             currbitIdx=i+1;

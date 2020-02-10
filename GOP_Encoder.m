@@ -21,7 +21,7 @@ while(isRemainingGOPFrame)
         [bitstream,quantized_frames(:,:,currentFrameIdx),MSEs_X(currentFrameIdx)] = IntraCoding(frames(:,:,currentFrameIdx),8,q_mtx,dict);
         encodedFrame = currentFrameIdx;
     else 
-        interCoding(frames(currentFrameIdx));
+        InterCoding(frames(:,:,currentFrameIdx),dict);
         encodedFrame = encodedFrame+1;
     end;
     if(encodedFrame==GOP)

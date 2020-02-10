@@ -1,7 +1,7 @@
 %function [GOPDecodedFrames]=main_decoder(frameSize,nOfFrames,blockSize,noframes,dict)
 quantizedFrames=[];
 
-noframes=1;
+noframes=2;
 blockSize=8;
 frameSize=[288 352];
 
@@ -20,7 +20,7 @@ i=1;
 seq=inverBitstream(bitstream,dict);
 [quantizedFrames,currBitIdx]=iRLC(seq,blockSize,frameSize,dict,bitstreamIdx,noframes);
 GOPDecodedFrames=zeros(size(quantizedFrames));
-while i<2
+while i<3
     [rev_quantized_frames]=reverse_block_quantizer(quantizedFrames(:,:,i),blockSize,q_mtx);
     [tmp]=block_idct_frame(rev_quantized_frames,blockSize);
     GOPDecodedFrames(:,:,i)=tmp;
@@ -28,7 +28,7 @@ while i<2
 end
 %% showing images
 figure(1)
-image(uint8(GOPDecodedFrames));
+image(uint8(GOPDecodedFrames(:,:,2)));
 colormap(gray(256));
 %axis image
 %pause(1/30);
