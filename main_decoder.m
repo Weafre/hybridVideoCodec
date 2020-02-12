@@ -28,8 +28,11 @@ while i<3
 end
 %% showing images
 figure(1)
-image(uint8(GOPDecodedFrames(:,:,2)));
+image(uint8(GOPDecodedFrames(:,:,1)));
 colormap(gray(256));
 %axis image
 %pause(1/30);
+%% compute psnr
+distored=grayimg-GOPDecodedFrames(:,:,2);
+psnr=10*log10(255*255*288*352/sum(sum((distored.*distored))))
 

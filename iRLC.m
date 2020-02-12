@@ -14,7 +14,7 @@ isRemainingFrame=true;
 for i=bitIdx:length
         if(seq(i,1)==0 && seq(i,2)==0)
             currbitIdx=i+1;
-            sprintf('currently doing the block: %d %d \n',vBlock,hBlock)
+            %sprintf('currently doing the block: %d %d \n',vBlock,hBlock)
             tmp=seq(lastEnding+1:i,:);
             iRLC=Run_length(tmp,'dec');
             izzMtrx=izigzag(iRLC,blocksize,blocksize);

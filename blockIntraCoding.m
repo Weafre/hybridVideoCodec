@@ -20,14 +20,14 @@ blocksize=size(current_block,1)
 
 B_DCT=dct2(current_block);
 
-quantized_block=fix(B_DCT./q_mtx)
+quantized_block=fix(B_DCT./q_mtx);
 
 bitstream_B=RLC(quantized_block, blocksize,dict);
-seq=inverBitstream(bitstream_B,dict)
+seq=inverBitstream(bitstream_B,dict);
 [quantized_reved_bit_block,~]=iRLC(seq,blocksize,size(current_block),dict,1,1);
 rev_quantized_frame=quantized_reved_bit_block(:,:,1).*q_mtx;
 %rev_quantized_frame=quantized_block.*q_mtx;
-XQ=idct2(rev_quantized_frame)
+XQ=idct2(rev_quantized_frame);
 
 MSE_B=mean( (current_block(:)-XQ(:)).^2);
 end
