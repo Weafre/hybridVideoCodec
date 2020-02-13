@@ -28,7 +28,7 @@ while(isRemainingGOPFrame)
         [bitRe, bitMv,bitFlag,decodedFrames(:,:,currentFrameIdx),MSEs_X(currentFrameIdx)]=InterCoding(frames(:,:,currentFrameIdx),decodedFrames(:,:,currentFrameIdx-1),blocksize,q_mtx,search,dict,mv_codebook,alpha);
         encodedFrame = encodedFrame+1;
         bitstream=[bitstream bitFlag bitMv bitRe];
-        %bitFlag(1:100)
+        bitFlag()
         sprintf('finished 1 inter')
     end
     if(encodedFrame==GOP)

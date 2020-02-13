@@ -1,7 +1,6 @@
 noGOP=3;
 blockSize=8;
 frameSize=[288 352];
-noBlock=uint8(frameSize(1)*frameSize(2)/(blockSize*blockSize));
 q_mtx =     [16 11 10 16 24 40 51 61; 
              12 12 14 19 26 58 60 55;
              14 13 16 24 40 57 69 56; 
@@ -19,13 +18,13 @@ mv_codebook=mv_codebook.mv_codebook;
 GOPCount=0;
 GOPStructure=1;
 isRemainingGOP=true;
-DecodedFrames=[];
+DecodedFrames=
 %% GOP Decoder
 while isRemainingGOP
     GOPDecodedFrames=[];
     frCount=0;
     %Decode I frame
-    seq=inverBitstream(bitstream,dict,frameSize,blocksize);
+    seq=inverBitstream(bitstream,dict);
     [quantizedFrames,currBitIdx]=iRLC(seq,blockSize,frameSize,dict,bitstreamIdx,1);
     [rev_quantized_frames]=reverse_block_quantizer(quantizedFrames(:,:,1),blockSize,q_mtx);
     [tmp]=block_idct_frame(rev_quantized_frames,blockSize);
@@ -36,9 +35,7 @@ while isRemainingGOP
         
     end
     if(frCount==GOPStructure)
-        decodedFrames(:,:,GOPCount*GOPStructure+1:GOPCount*GOPStructure+GOPStructure)=GOPDecodedFrames;
         GOPCount=GOPCount+1;
-        
     end
     if(GOPCount==noGOP)
         isRemainingGOP=0;
@@ -47,7 +44,7 @@ while isRemainingGOP
 end
 %% showing images
 figure(1)
-image(uint8(decodedFrames(:,:,3)));
+image(uint8(GOPDecodedFrames(:,:,1)));
 colormap(gray(256));
 %axis image
 %pause(1/30);

@@ -1,4 +1,4 @@
-function [bitstream_B,MSE_B]=blockIntraCoding(current_block,q_mtx,dict)
+function [bitstream_B,MSE_B,XQ]=blockIntraCoding(current_block,q_mtx,dict)
 
 % r
 % input_bpp = 8; % bits per pixel
@@ -16,7 +16,7 @@ function [bitstream_B,MSE_B]=blockIntraCoding(current_block,q_mtx,dict)
 %             49 64 78 87 103 121 120 101;
 %             72 92 95 98 112 100 103 99];
 % block based transform
-blocksize=size(current_block,1)
+blocksize=size(current_block,1);
 
 B_DCT=dct2(current_block);
 

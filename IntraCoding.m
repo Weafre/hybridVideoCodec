@@ -1,4 +1,4 @@
-function [bitstream,quantized_frame,MSE_X]=IntraCoding(current_frame,blockSize,q_mtx,dict)
+function [bitstream,XQ,MSE_X]=IntraCoding(current_frame,blockSize,q_mtx,dict)
 
 
 % input_bpp = 8; % bits per pixel
