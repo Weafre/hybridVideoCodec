@@ -1,7 +1,9 @@
-noGOP=3;
+%% bit
+bitstream=bitstream2;
+noGOP=1;
 blockSize=8;
 frameSize=[288 352];
-noBlock=uint8(frameSize(1)*frameSize(2)/(blockSize*blockSize));
+noBlock=1584;
 q_mtx =     [16 11 10 16 24 40 51 61; 
              12 12 14 19 26 58 60 55;
              14 13 16 24 40 57 69 56; 
@@ -11,29 +13,36 @@ q_mtx =     [16 11 10 16 24 40 51 61;
              49 64 78 87 103 121 120 101;
              72 92 95 98 112 100 103 99];
 
-bitstreamIdx=1;
+
 dict=load('dict.mat');
 dict=dict.dict;
 mv_codebook=load('mv_codebook.mat');
 mv_codebook=mv_codebook.mv_codebook;
 GOPCount=0;
-GOPStructure=1;
+GOPStructure=3;
 isRemainingGOP=true;
 DecodedFrames=[];
+bitIdx=0;
 %% GOP Decoder
 while isRemainingGOP
     GOPDecodedFrames=[];
     frCount=0;
     %Decode I frame
-    seq=inverBitstream(bitstream,dict,frameSize,blocksize);
-    [quantizedFrames,currBitIdx]=iRLC(seq,blockSize,frameSize,dict,bitstreamIdx,1);
+    [seq,currBitIdx]=inverBitstream(bitstream,dict,noBlock,bitIdx);
+    bitIdx=currBitIdx;
+    bitstream=bitstream(bitIdx+1:end);
+    [quantizedFrames,~]=iRLC(seq,blockSize,frameSize,dict,1,1);
     [rev_quantized_frames]=reverse_block_quantizer(quantizedFrames(:,:,1),blockSize,q_mtx);
     [tmp]=block_idct_frame(rev_quantized_frames,blockSize);
     frCount=frCount+1;
     GOPDecodedFrames(:,:,frCount)=tmp;
+    sprintf('finished decoding i frame')
     %Decode P frame
     while frCount<GOPStructure
-        
+        [GOPDecodedFrames(:,:,frCount+1),currBitIdx]=interDecoder(bitstream,q_mtx,GOPDecodedFrames(:,:,frCount),frameSize,blockSize,dict,mv_codebook,noBlock);
+        bitIdx=currBitIdx;
+        bitstream=bitstream(bitIdx+1:end);
+        frCount=frCount+1;
     end
     if(frCount==GOPStructure)
         decodedFrames(:,:,GOPCount*GOPStructure+1:GOPCount*GOPStructure+GOPStructure)=GOPDecodedFrames;

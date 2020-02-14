@@ -1,11 +1,12 @@
-function [seq]=inverBitstream(bitstr, dict)
+function [seq,currBitIdx]=inverBitstream(bitstr, dict,noBLock,bitIdx)
 seq=[];
-currIdx=0;
+currIdx=bitIdx;
 currL=4;
 dicl=size(dict,1);
-EOB=false;
+EOF=false;
 codeword=[];
-while ~EOB
+blockCount=0;
+while ~EOF
     currL=5;
     %currIdx
     while currL<50    
@@ -18,6 +19,9 @@ while ~EOB
                 if(isequal(bitstr(currIdx+1:currIdx+currL), dict{i,2}))
                     seq(end+1,1)=dict{i,1}(1);
                     seq(end,2) = dict{i,1}(2);
+                    if(dict{i,1}(1)==0 && dict{i,1}(2)==0)
+                        blockCount=blockCount+1;
+                    end
                     currIdx=currIdx+currL;
                     currL=50;
                     break
@@ -26,8 +30,9 @@ while ~EOB
         end
         currL=currL+1;
     end
-    if(currIdx==size(bitstr,2))
-        EOB=true;
+    if(blockCount==noBLock)
+        currBitIdx=currIdx;
+        EOF=true;
     end
 end
 end
