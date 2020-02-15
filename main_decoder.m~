@@ -19,9 +19,9 @@ dict=dict.dict;
 mv_codebook=load('mv_codebook.mat');
 mv_codebook=mv_codebook.mv_codebook;
 GOPCount=0;
-GOPStructure=2;
+GOPStructure=1;
 isRemainingGOP=true;
-%DecodedFrames=[];
+DecodedFrames=[];
 bitIdx=0;
 %% GOP Decoder
 while isRemainingGOP
@@ -30,8 +30,8 @@ while isRemainingGOP
     frCount=0;
     %Decode I frame
     [seq,currBitIdx]=inverBitstream(bitstream,dict,noBlock,bitIdx);
-    bitstream=bitstream(currBitIdx+1:end);
-    bitIdx=0;
+    bitIdx=currBitIdx;
+    bitstream=bitstream(bitIdx+1:end);
     [quantizedFrames,~]=iRLC(seq,blockSize,frameSize,dict,1,1);
     [rev_quantized_frames]=reverse_block_quantizer(quantizedFrames(:,:,1),blockSize,q_mtx);
     [tmp]=block_idct_frame(rev_quantized_frames,blockSize);
@@ -41,9 +41,8 @@ while isRemainingGOP
     %Decode P frame
     while frCount<GOPStructure
         [GOPDecodedFrames(:,:,frCount+1),currBitIdx]=interDecoder(bitstream,q_mtx,GOPDecodedFrames(:,:,frCount),frameSize,blockSize,dict,mv_codebook,noBlock);
-        
-        bitstream=bitstream(currBitIdx+1:end);
-        bitIdx=0;
+        bitIdx=currBitIdx;
+        bitstream=bitstream(bitIdx+1:end);
         frCount=frCount+1;
     end
     if(frCount==GOPStructure)
@@ -58,7 +57,7 @@ while isRemainingGOP
 end
 %% showing images
 figure(1)
-image(uint8(decodedFrames(:,:,3)));
+image(uint8(decodedFrames(:,:,1)));
 colormap(gray(256));
 %axis image
 %pause(1/30);

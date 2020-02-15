@@ -23,7 +23,7 @@ tmpY = fread(fid, [cols rows], 'uchar');
 %tmpU = fread(fid, [cols/2 rows/2], 'uchar');
 %tmpV = fread(fid, [cols/2 rows/2], 'uchar');
 
-grayscale(:,:,1,i+1) = tmpY';
+grayscale(:,:,i+1) = tmpY';
 %[X, Y]=meshgrid(2:2:rows,2:2:cols); % tmpU sampling grid
 %[XI, YI]=meshgrid(1:rows,1:cols);   % required sampling grid
 %U=interp2(X,Y,tmpU,XI,YI);

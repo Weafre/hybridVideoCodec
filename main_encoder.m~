@@ -1,7 +1,7 @@
 %% Defining global variables
 totalFrame=100;
-numberOfFrames2Encode = 2;
-GOP = 2;
+numberOfFrames2Encode = 3;
+GOP = 1;
 startingFrame=1;
 isRemainingFrame = true;
 encodedFrame=0;
@@ -14,7 +14,7 @@ alpha=1000;
 search=8;
 %% Encoding frames
 while(isRemainingFrame)
-if encodedFrame>=numberOfFrames2Encode
+if encodedFrame+GOP>numberOfFrames2Encode
     sprintf('Encoding finished')
     isRemainingFrame=false;
 else 
@@ -22,7 +22,7 @@ else
     %grayimg=grayimg*255;
     %figure; imshow(gray);
     [GOP_bitstream,~,MSEs] = GOP_Encoder(grayimg,GOP,dict,mv_codebook,alpha,search);
-    sprintf('encoded frame %d',encodedFrame)
+    sprintf('encoding frame %d',encodedFrame)
     bitstream=[bitstream GOP_bitstream];
     encodedFrame = encodedFrame + GOP;
 
