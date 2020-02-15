@@ -1,6 +1,6 @@
 %% bit
 bitstream=bitstream2;
-noGOP=1;
+noGOP=2;
 blockSize=8;
 frameSize=[288 352];
 noBlock=1584;
@@ -21,7 +21,7 @@ mv_codebook=mv_codebook.mv_codebook;
 GOPCount=0;
 GOPStructure=2;
 isRemainingGOP=true;
-%DecodedFrames=[];
+decodedFrames=[];
 bitIdx=0;
 %% GOP Decoder
 while isRemainingGOP
@@ -58,11 +58,11 @@ while isRemainingGOP
 end
 %% showing images
 figure(1)
-image(uint8(decodedFrames(:,:,3)));
+image(uint8(decodedFrames(:,:,4)));
 colormap(gray(256));
 %axis image
 %pause(1/30);
 %% compute psnr
-%distored=grayimg-GOPDecodedFrames(:,:,2);
-%psnr=10*log10(255*255*288*352/sum(sum((distored.*distored))))
+distored=grayimg-decodedFrames(:,:,4);
+psnr=10*log10(255*255*288*352/sum(sum((distored.*distored))))
 

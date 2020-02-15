@@ -1,6 +1,6 @@
 %% Defining global variables
 totalFrame=100;
-numberOfFrames2Encode = 2;
+numberOfFrames2Encode = 4;
 GOP = 2;
 startingFrame=1;
 isRemainingFrame = true;
@@ -28,5 +28,6 @@ else
 
 end;
 end
+bitstream2=bitstream;
 save bitstream;
 
