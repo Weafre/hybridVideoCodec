@@ -16,7 +16,7 @@ for i=1:noBlock
         currIdx=currIdx+10;
     end
 end
-sprintf('finshed reading mv %d', currIdx/10)
+%sprintf('finshed reading mv %d', currIdx/10)
 
 blockCount=0;
 mvCount=0;

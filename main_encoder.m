@@ -1,6 +1,6 @@
 %% Defining global variables
 totalFrame=100;
-numberOfFrames2Encode = 4;
+numberOfFrames2Encode = 2;
 GOP = 2;
 startingFrame=1;
 isRemainingFrame = true;
@@ -10,8 +10,8 @@ dict=load('dict.mat');
 dict=dict.dict;
 mv_codebook=load('mv_codebook.mat');
 mv_codebook=mv_codebook.mv_codebook;
-alpha=1000;
-search=8;
+alpha=10;
+search=1;%0 means full search, 1 mean 2dlog search
 %% Encoding frames
 while(isRemainingFrame)
 if encodedFrame>=numberOfFrames2Encode
@@ -29,5 +29,5 @@ else
 end;
 end
 bitstream2=bitstream;
-save bitstream;
+%save bitstream;
 

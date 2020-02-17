@@ -5,7 +5,7 @@ function [bitstream_re, bit_mv,flag,block]=blockInterCoding(current_block,r,c , 
 %% block intra coding
 [bit_Intra,MSE_Intra,block_Intra]=blockIntraCoding(current_block,q_mtx,dict);
 %% block bsed motion estimation
-[mv, ~] = me_block(current_block,r,c, ref_frame, blocksize, search);
+[mv, ~] = me_blockv2(current_block,r,c, ref_frame, blocksize, search);
 block_comp = mc_block(ref_frame,mv,blocksize,r,c);
 residual=current_block-block_comp;
 [bit_re,~,resualB]=blockIntraCoding(residual,q_mtx,dict);

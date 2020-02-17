@@ -1,6 +1,6 @@
 %% bit
 bitstream=bitstream2;
-noGOP=2;
+noGOP=1;
 blockSize=8;
 frameSize=[288 352];
 noBlock=1584;
@@ -37,9 +37,10 @@ while isRemainingGOP
     [tmp]=block_idct_frame(rev_quantized_frames,blockSize);
     frCount=frCount+1;
     GOPDecodedFrames(:,:,frCount)=tmp;
-    sprintf('finished decoding ai frame')
+    sprintf('finished decoding I frame')
     %Decode P frame
     while frCount<GOPStructure
+        %sprintf('starting decode frame %d',frCount,' of GOP %d', GOPCount)
         [GOPDecodedFrames(:,:,frCount+1),currBitIdx]=interDecoder(bitstream,q_mtx,GOPDecodedFrames(:,:,frCount),frameSize,blockSize,dict,mv_codebook,noBlock);
         
         bitstream=bitstream(currBitIdx+1:end);
@@ -58,11 +59,11 @@ while isRemainingGOP
 end
 %% showing images
 figure(1)
-image(uint8(decodedFrames(:,:,4)));
+image(uint8(decodedFrames(:,:,1)));
 colormap(gray(256));
 %axis image
 %pause(1/30);
 %% compute psnr
-distored=grayimg-decodedFrames(:,:,4);
+distored=grayimg-decodedFrames(:,:,2);
 psnr=10*log10(255*255*288*352/sum(sum((distored.*distored))))
 
