@@ -1,0 +1,48 @@
+18-Feb-2020 07:12:20: START ENCODER  
+----Number of frame to encode:                 4 
+----GOP Structure:                             2 
+----Alpha:                                     0.10 
+----Search(0 for full search, 1 for 2D Log):   1 
+----Size of I frame (in k.byte):               10.27 
+----Size of P frame (in k.byte):               10.18 
+----Size of I frame (in k.byte):               10.03 
+----Size of P frame (in k.byte):               10.13 
+18-Feb-2020 07:13:41: ENCODING FINISHED 
+----Size of encoded video(in k.byte):          40.61 
+----Encoding duration(s):                      80.83 
+18-Feb-2020 07:13:58: START ENCODER  
+----Number of frame to encode:                 4 
+----GOP Structure:                             2 
+----Alpha:                                     10000.00 
+----Search(0 for full search, 1 for 2D Log):   1 
+----Size of I frame (in k.byte):               10.27 
+----Size of P frame (in k.byte):               10.58 
+----Size of I frame (in k.byte):               10.03 
+----Size of P frame (in k.byte):               10.48 
+18-Feb-2020 07:15:19: ENCODING FINISHED 
+----Size of encoded video(in k.byte):          41.36 
+----Encoding duration(s):                      80.81 
+18-Feb-2020 07:16:38: START ENCODER  
+----Number of frame to encode:                 4 
+----GOP Structure:                             2 
+----Alpha:                                     10000000.00 
+----Search(0 for full search, 1 for 2D Log):   1 
+----Size of I frame (in k.byte):               10.27 
+----Size of P frame (in k.byte):               10.58 
+----Size of I frame (in k.byte):               10.03 
+----Size of P frame (in k.byte):               10.48 
+18-Feb-2020 07:18:00: ENCODING FINISHED 
+----Size of encoded video(in k.byte):          41.36 
+----Encoding duration(s):                      81.74 
+18-Feb-2020 07:18:18: START ENCODER  
+----Number of frame to encode:                 4 
+----GOP Structure:                             2 
+----Alpha:                                     0.00 
+----Search(0 for full search, 1 for 2D Log):   1 
+----Size of I frame (in k.byte):               10.27 
+----Size of P frame (in k.byte):               9.10 
+----Size of I frame (in k.byte):               10.03 
+----Size of P frame (in k.byte):               8.91 
+18-Feb-2020 07:19:39: ENCODING FINISHED 
+----Size of encoded video(in k.byte):          38.32 
+----Encoding duration(s):                      81.24 

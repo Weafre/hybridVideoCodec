@@ -1,4 +1,4 @@
-function [bitstream,decodedFrames,MSEs_X] = GOP_Encoder(frames,GOP,dict,mv_codebook,alpha,search)
+function [bitstream,decodedFrames,MSEs_X] = GOP_Encoder(frames,GOP,dict,mv_codebook,alpha,search,fid)
 
 isRemainingGOPFrame=true;
 encodedFrame=0;
@@ -23,13 +23,16 @@ while(isRemainingGOPFrame)
         [bitIntra,decodedFrames(:,:,currentFrameIdx),MSEs_X(currentFrameIdx)] = IntraCoding(frames(:,:,currentFrameIdx),8,q_mtx,dict);
         encodedFrame = encodedFrame+1;
         bitstream=[bitstream bitIntra];
+        fprintf(fid,'----Size of I frame (in k.byte):               %4.2f \n',size(bitIntra,2)/8192);
         sprintf('finished intra')
     else 
         [bitRe, bitMv,bitFlag,decodedFrames(:,:,currentFrameIdx),MSEs_X(currentFrameIdx)]=InterCoding(frames(:,:,currentFrameIdx),decodedFrames(:,:,currentFrameIdx-1),blocksize,q_mtx,search,dict,mv_codebook,alpha);
         encodedFrame = encodedFrame+1;
         bitstream=[bitstream bitFlag bitMv bitRe];
+        
+        fprintf(fid,'----Size of P frame (in k.byte):               %4.2f \n',(size(bitFlag,2)+size(bitMv,2)+size(bitRe,2))/8192);
         %bitFlag(1:100)
-        sprintf('finished 1 inter')
+        %sprintf('finished 1 inter')
     end
     if(encodedFrame==GOP)
         isRemainingGOPFrame = false;
