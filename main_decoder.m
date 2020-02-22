@@ -1,10 +1,11 @@
 %% bit
 bitstream=bitstream2;
-noGOP=5;
+noGOP=1;
 GOPStructure=4;
 blockSize=8;
 frameSize=[288 352];
 noBlock=1584;
+qu_scale=0.5;
 q_mtx =     [16 11 10 16 24 40 51 61; 
              12 12 14 19 26 58 60 55;
              14 13 16 24 40 57 69 56; 
@@ -13,7 +14,7 @@ q_mtx =     [16 11 10 16 24 40 51 61;
              24 35 55 64 81 104 113 92;
              49 64 78 87 103 121 120 101;
              72 92 95 98 112 100 103 99];
-
+q_mtx=q_mtx*qu_scale;
 
 %dict=load('dict.mat');
 %dict=dict.dict;
@@ -63,7 +64,7 @@ while isRemainingGOP
 end
 %% showing images
 figure(1)
-image(uint8(decodedFrames(:,:,20)));
+image(uint8(decodedFrames(:,:,1)));
 colormap(gray(256));
 %axis image
 %pause(1/30);

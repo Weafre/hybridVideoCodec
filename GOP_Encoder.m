@@ -1,4 +1,4 @@
-function [bitstream,decodedFrames,MSEs_X] = GOP_Encoder(frames,GOP,dict_first_sym,dict_second_sym,mv_codebook,alpha,search,fid)
+function [bitstream,decodedFrames,MSEs_X] = GOP_Encoder(frames,GOP,dict_first_sym,dict_second_sym,mv_codebook,alpha,search,fid,qu_scale)
 
 isRemainingGOPFrame=true;
 encodedFrame=0;
@@ -11,6 +11,7 @@ encodedFrame=0;
              24 35 55 64 81 104 113 92;
              49 64 78 87 103 121 120 101;
              72 92 95 98 112 100 103 99];
+ q_mtx=(q_mtx*qu_scale);
 decodedFrames=zeros(size(frames));
 MSEs_X=zeros(GOP);
 bitstream=[];

@@ -1,6 +1,6 @@
 %% Defining global variables
 totalFrame=100;
-numberOfFrames2Encode = 80;
+numberOfFrames2Encode = 8;
 GOP = 4;
 startingFrame=1;
 isRemainingFrame = true;
@@ -12,6 +12,7 @@ mv_codebook=load('mv_codebook.mat');
 mv_codebook=mv_codebook.mv_codebook;
 alpha=10;
 search=0;%0 means full search, 1 mean 2dlog search
+qu_scale=0.5;
 %% prepare log file
 fid = fopen('encodingLog.txt', 'a');
 if fid == -1
@@ -22,6 +23,7 @@ fprintf(fid,'----Number of frame to encode:                 %d \n',numberOfFrame
 fprintf(fid,'----GOP Structure:                             %d \n',GOP);
 fprintf(fid,'----Alpha:                                     %4.2f \n',alpha);
 fprintf(fid,'----Search(0 for full search, 1 for 2D Log):   %d \n',search);
+fprintf(fid,'----Quantization scale:                        %d \n',qu_scale);
 fprintf(fid,'----Size of frame(k.byte)        MSE\n');
                                             
 
@@ -35,7 +37,7 @@ else
     [grayimgs] = getCifYUVframe('videos/foreman_cif.yuv',startingFrame+encodedFrame,GOP);
     %grayimg=grayimg*255;
     %figure; imshow(gray);
-    [GOP_bitstream,~,MSEs] = GOP_Encoder(grayimgs,GOP,dict_first_sym,dict_second_sym,mv_codebook,alpha,search,fid);
+    [GOP_bitstream,~,MSEs] = GOP_Encoder(grayimgs,GOP,dict_first_sym,dict_second_sym,mv_codebook,alpha,search,fid,qu_scale);
     encodedFrame = encodedFrame + GOP;
     sprintf('Encoded frame: %d',encodedFrame)
     bitstream=[bitstream GOP_bitstream];
