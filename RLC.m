@@ -1,4 +1,4 @@
-function [bit]=RLC(quantizedFrame, blocksize,dict)
+function [bit]=RLC(quantizedFrame, blocksize,dict_first_sym,dict_second_sym)
 bit=[];
 seq=[];
 for i=1:blocksize:size(quantizedFrame,1)-blocksize+1
@@ -9,5 +9,5 @@ for i=1:blocksize:size(quantizedFrame,1)-blocksize+1
         end
     
 end
-bit=genBitstream(seq,dict);
+bit=genBitstream(seq,dict_first_sym,dict_second_sym);
 end

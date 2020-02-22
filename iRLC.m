@@ -1,4 +1,4 @@
-function [quantizedFrames,currseqIdx]=iRLC(seq,blocksize,frSize,dict,seqIdx,numberOfFr)
+function [quantizedFrames,currseqIdx]=iRLC(seq,blocksize,frSize,seqIdx,numberOfFr)
 %[quantizedFrs,currbit]=iRLC(seq,8,[288 352],1,3);
 quantizedFrames=[];
 vBlock=0;
@@ -10,6 +10,7 @@ lastEnding=0;
 length=size(seq,1);
 frIdx=0;
 isRemainingFrame=true;
+currseqIdx=0;
 %sprintf('starting decoding')
 for i=seqIdx:length
         if(seq(i,1)==0 && seq(i,2)==0)

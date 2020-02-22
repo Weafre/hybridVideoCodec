@@ -1,4 +1,4 @@
-function [interFrame,currIdx]=interDecoder(bitstream,q_mtx,ref_frame,frameSize,blockSize,dict,mv_codebook,noBlock)
+function [interFrame,currIdx]=interDecoder(bitstream,q_mtx,ref_frame,frameSize,blockSize,dict_first_sym,dict_second_sym,mv_codebook,noBlock)
 
 bitIdx =0;
 
@@ -27,10 +27,10 @@ for i=1:blockSize:frameSize(1)-blockSize+1
             if(flags(blockCount+1)==0)
                 
                 %convert from bit stream to pair sequence
-                [seq,id]=inverBitstream(bitstream,dict,1,currIdx);
+                [seq,id]=inverBitstream(bitstream,currIdx,1,dict_first_sym,dict_second_sym);
                 currIdx=id;
                 %sequence to quantized block
-                [quantizedBlock,~]=iRLC(seq,blockSize,[blockSize blockSize],dict,1,1);
+                [quantizedBlock,~]=iRLC(seq,blockSize,[blockSize blockSize],1,1);
                 %reverse quantization
                 [rev_quantized_block]=reverse_block_quantizer(quantizedBlock(:,:,1),blockSize,q_mtx);
                 %invert dct
@@ -39,9 +39,9 @@ for i=1:blockSize:frameSize(1)-blockSize+1
                 blockCount=blockCount+1;
             else
                 %compute resual
-                [seq,id]=inverBitstream(bitstream,dict,1,currIdx);
+                [seq,id]=inverBitstream(bitstream,currIdx,1,dict_first_sym,dict_second_sym);
                 currIdx=id;
-                [quantizedRe,~]=iRLC(seq,blockSize,[blockSize blockSize],dict,1,1);
+                [quantizedRe,~]=iRLC(seq,blockSize,[blockSize blockSize],1,1);
                 [rev_quantized_Re]=reverse_block_quantizer(quantizedRe(:,:,1),blockSize,q_mtx);
                 [Resual]=block_idct_frame(rev_quantized_Re,blockSize);
                 %obtain mc block from ref frame
@@ -56,5 +56,5 @@ for i=1:blockSize:frameSize(1)-blockSize+1
         end
     
 end
-sprintf('finshed decoding frame')
+sprintf('finshed decoding frame');
 end

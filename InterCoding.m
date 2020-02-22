@@ -1,4 +1,4 @@
-function [bitRe, bitMv,bitFlag,decodedFrame,MSE]=InterCoding(currentFrame,ref_frame,blocksize,q_mtx,search,dict,mv_codebook,alpha)
+function [bitRe, bitMv,bitFlag,decodedFrame,MSE]=InterCoding(currentFrame,ref_frame,blocksize,q_mtx,search,dict_first_sym,dict_second_sym,mv_codebook,alpha)
 bitRe=[];
 bitMv=[];
 bitFlag=[];
@@ -8,7 +8,7 @@ for i=1:blocksize:size(currentFrame,1)-blocksize+1
         
         for j=1:blocksize:size(currentFrame,2)-blocksize+1
             
-        [bitstream_re,bitstr_mv, Flag, block]=blockInterCoding(currentFrame(i:i+blocksize-1,j:j+blocksize-1),i,j , ref_frame,blocksize,q_mtx,search,dict,mv_codebook,alpha);
+        [bitstream_re,bitstr_mv, Flag, block]=blockInterCoding(currentFrame(i:i+blocksize-1,j:j+blocksize-1),i,j , ref_frame,blocksize,q_mtx,search,dict_first_sym,dict_second_sym,mv_codebook,alpha);
          decodedFrame(i:i+blocksize-1,j:j+blocksize-1)=block;
          
          bitRe=[bitRe bitstream_re];
