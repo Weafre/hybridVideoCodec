@@ -11,7 +11,7 @@ encodedFrame=0;
              24 35 55 64 81 104 113 92;
              49 64 78 87 103 121 120 101;
              72 92 95 98 112 100 103 99];
- q_mtx=(q_mtx*qu_scale);
+q_mtx=floor(q_mtx*qu_scale);
 decodedFrames=zeros(size(frames));
 MSEs_X=zeros(GOP);
 bitstream=[];
@@ -24,14 +24,14 @@ while(isRemainingGOPFrame)
         [bitIntra,decodedFrames(:,:,currentFrameIdx),MSEs_X(currentFrameIdx)] = IntraCoding(frames(:,:,currentFrameIdx),8,q_mtx,dict_first_sym,dict_second_sym);
         encodedFrame = encodedFrame+1;
         bitstream=[bitstream bitIntra];
-        fprintf(fid,'         %4.2f                   %4.2f \n', size(bitIntra,2)/8192,  MSEs_X(currentFrameIdx));
+        fprintf(fid,'         %4.2f                   %4.2f \n', size(bitIntra,2)/8192,  10*log10(255*255/MSEs_X(currentFrameIdx)));
         %fprintf(fid,'----Size of I frame (in k.byte):               %4.2f \n',size(bitIntra,2)/8192);
         %sprintf('Finished intra')
     else 
         [bitRe, bitMv,bitFlag,decodedFrames(:,:,currentFrameIdx),MSEs_X(currentFrameIdx)]=InterCoding(frames(:,:,currentFrameIdx),decodedFrames(:,:,currentFrameIdx-1),blocksize,q_mtx,search,dict_first_sym,dict_second_sym,mv_codebook,alpha);
         encodedFrame = encodedFrame+1;
         bitstream=[bitstream bitFlag bitMv bitRe];
-        fprintf(fid,'         %4.2f                   %4.2f \n', (size(bitFlag,2)+size(bitMv,2)+size(bitRe,2))/8192,  MSEs_X(currentFrameIdx));
+        fprintf(fid,'         %4.2f                   %4.2f \n', (size(bitFlag,2)+size(bitMv,2)+size(bitRe,2))/8192,  10*log10(255*255/MSEs_X(currentFrameIdx)));
         %fprintf(fid,'----Size of P frame (in k.byte):               %4.2f \n',(size(bitFlag,2)+size(bitMv,2)+size(bitRe,2))/8192);
         %bitFlag(1:100)
         %sprintf('finished 1 inter')

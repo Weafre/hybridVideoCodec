@@ -14,7 +14,7 @@ while 1
     currL2=1;
     EOS = false;
     %currIdx
-    while currL1<6
+    while currL1<9
         %currL
         %size(bitstr)
         %codeword=bitstr(currIdx+1:currIdx+currL)

@@ -1,0 +1,8 @@
+06-Mar-2020 04:38:06: START ENCODER  
+----Number of frame to encode:                 4 
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   1 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        MSE

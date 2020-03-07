@@ -1,4 +1,4 @@
-function [ grayscale] = getCifYUVframe(filename, k, gop)
+function [ grayscale] = getCifYUVframe(filename, k, gop,frSize)
 %GETCIFYUVFRAME gets a frame from a CIF color (420) video file
 %
 %   ycbcr = getCifYUVframe(filename, k) gets the k-th image; The output
@@ -13,7 +13,7 @@ grayscale=[];
 fid = fopen(filename,'r');
 if fid < 0, fprintf('File %s does not exist!\n', filename); return; 
 end
-rows = 288; cols = 352;
+rows = frSize(1); cols = frSize(2);
 bytes_per_frame = rows * cols;
 byte_shift_unit=bytes_per_frame*1.5;
 byte_shift0 = byte_shift_unit*(k-1);

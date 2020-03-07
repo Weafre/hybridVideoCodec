@@ -3,12 +3,22 @@ sql=size(seq,1);
 dicl=size(dict_first_sym,1);
 dic2=size(dict_second_sym,1);
 bit=boolean([]);
+max=0;
+min=10000;
 for i=1:sql
-    if(seq(i,2)>255)
-        seq(i,2)=255;
+    if(seq(i,2)>512)
+        sprintf('larger than 512')
+        if(seq(i,2)>max)
+            max=seq(i,2);
+        end
+        seq(i,2)=512;
     end
-    if(seq(i,2)< -255)
-        seq(i,2)= -255;
+    if(seq(i,2)< -512)
+        sprintf('smaller than -512')
+        if(seq(i,2)<min)
+            min=seq(i,2);
+        end
+        seq(i,2)= -512;
     end
     
     
@@ -29,6 +39,7 @@ for i=1:sql
     end
    
     
-    
+max;
+min;
     
 end

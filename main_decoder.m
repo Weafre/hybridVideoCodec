@@ -1,10 +1,11 @@
 %% bit
 bitstream=bitstream2;
-noGOP=1;
-GOPStructure=4;
+noGOP=4;
+GOPStructure=1;
 blockSize=8;
 frameSize=[288 352];
-noBlock=1584;
+noBlock=(frameSize(1)/blockSize) * (frameSize(2)/blockSize);
+noBlock=floor(noBlock);
 qu_scale=0.5;
 q_mtx =     [16 11 10 16 24 40 51 61; 
              12 12 14 19 26 58 60 55;
@@ -18,7 +19,7 @@ q_mtx=q_mtx*qu_scale;
 
 %dict=load('dict.mat');
 %dict=dict.dict;
-mv_codebook=load('mv_codebook.mat');
+mv_codebook=load('mv_codebook14.mat');
 mv_codebook=mv_codebook.mv_codebook;
 GOPCount=0;
 
@@ -64,11 +65,11 @@ while isRemainingGOP
 end
 %% showing images
 figure(1)
-image(uint8(decodedFrames(:,:,1)));
+image(uint8(decodedFrames(:,:,2)));
 colormap(gray(256));
 %axis image
 %pause(1/30);
 %% compute psnr
-distored=grayimg(:,:,2)-decodedFrames(:,:,2);
+distored=grayimgs(:,:,2)-decodedFrames(:,:,2);
 psnr=10*log10(255*255*288*352/sum(sum((distored.*distored))))
 

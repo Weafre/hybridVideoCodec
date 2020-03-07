@@ -8,10 +8,10 @@ function [mv, MSE] = me_blockv2(B, r,c,ref,blocksize,search)
 %
 search_area=8;
 delta1= {[-8 0],[0 8],[0 0],[8 0],[0 -8], };
-delta2= {[0 0] };
-delta3= {[0 0] };
-%delta2= {[-4 0],[0 4 ],[0 0],[4 0],[0 -4], };
-%delta3= {[-2 0],[0 2],[0 0],[2 0],[0 -2], };
+%delta2= {[0 0] };
+%delta3= {[0 0] };
+delta2= {[-4 0],[0 4 ],[0 0],[4 0],[0 -4], };
+delta3= {[-2 0],[0 2],[0 0],[2 0],[0 -2], };
 delta={delta1 delta2 delta3};
 [rows, cols]=size(ref);
 
