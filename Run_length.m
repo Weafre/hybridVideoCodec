@@ -8,7 +8,7 @@ if type =='enc'
     for i=1:length(S)
         if S(i)==0
             m=m+1;
-            if(m>11)
+            if(m>63)
                 nb_sym(end+1)=m-1;
                 alphabet(end+1)=S(i);
                 sym(end+1,1)=0;sym(end,2)=S(i);

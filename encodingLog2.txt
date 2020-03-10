@@ -1,0 +1,174 @@
+08-Mar-2020 03:49:57: START ENCODER  
+----Number of frame to encode:                 2 
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   1 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+08-Mar-2020 03:50:04: START ENCODER  
+----Number of frame to encode:                 2 
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   1 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.14    	               33.25 
+         5.52     	              33.40 
+----Size of encoded video(in k.byte):          13.66 
+----Encoding duration(s):                      26.03 
+08-Mar-2020 03:50:30: ENCODING FINISHED 
+08-Mar-2020 03:54:03: START ENCODER  
+----Number of frame to encode:                 2 
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.14    	               33.25 
+         4.78     	              33.80 
+----Size of encoded video(in k.byte):          12.92 
+----Encoding duration(s):                      25.84 
+08-Mar-2020 03:54:29: ENCODING FINISHED 
+08-Mar-2020 03:56:13: START ENCODER  
+----Number of frame to encode:                 25 
+----Frame Size:                                288 352 
+----GOP Structure:                             5 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.14    	               33.25 
+         4.78     	              33.80 
+         4.47     	              34.01 
+         4.60     	              34.17 
+         4.47     	              34.21 
+         8.21    	               33.24 
+         4.79     	              33.81 
+         4.40     	              34.12 
+         4.44     	              34.17 
+         4.45     	              34.24 
+         8.39    	               33.09 
+         4.81     	              33.56 
+         5.14     	              33.69 
+         4.89     	              33.84 
+         4.95     	              33.92 
+         8.71    	               32.81 
+         4.95     	              33.34 
+         4.58     	              33.51 
+         4.33     	              33.67 
+         4.28     	              33.84 
+         8.79    	               32.76 
+         4.79     	              33.48 
+         4.59     	              33.77 
+         4.51     	              33.88 
+         4.36     	              33.85 
+----Size of encoded video(in k.byte):          134.81 
+----Encoding duration(s):                      408.59 
+08-Mar-2020 04:03:01: ENCODING FINISHED 
+08-Mar-2020 04:34:08: START ENCODER  
+----Number of frame to encode:                 25 
+----Frame Size:                                288 352 
+----GOP Structure:                             5 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        3.000000e-01 
+----Size of frame(k.byte)        PSNR
+         18.28    	               37.31 
+         11.69     	              37.60 
+         10.72     	              37.84 
+         11.26     	              37.90 
+         11.36     	              37.91 
+         18.43    	               37.23 
+         12.08     	              37.64 
+         10.94     	              37.92 
+         11.50     	              37.86 
+         11.42     	              37.87 
+         18.81    	               37.13 
+         12.14     	              37.45 
+         12.94     	              37.47 
+         12.28     	              37.57 
+         12.78     	              37.65 
+         19.55    	               36.76 
+         12.77     	              37.16 
+         12.36     	              37.28 
+         11.45     	              37.42 
+         11.51     	              37.50 
+         19.76    	               36.87 
+         12.12     	              37.41 
+         11.84     	              37.65 
+         11.82     	              37.62 
+         11.44     	              37.52 
+----Size of encoded video(in k.byte):          331.25 
+----Encoding duration(s):                      949.82 
+08-Mar-2020 04:49:58: ENCODING FINISHED 
+08-Mar-2020 04:52:26: START ENCODER  
+----Number of frame to encode:                 25 
+----Frame Size:                                288 352 
+----GOP Structure:                             5 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1.800000e-01 
+----Size of frame(k.byte)        PSNR
+         25.16    	               19.10 
+         25.48     	              37.58 
+         17.37     	              38.92 
+         17.99     	              38.93 
+         17.95     	              38.35 
+         25.54    	               19.10 
+         26.28     	              37.03 
+         18.12     	              38.36 
+         18.31     	              39.04 
+         18.14     	              39.33 
+         25.99    	               19.10 
+         26.88     	              36.77 
+         20.27     	              38.37 
+         19.33     	              38.67 
+         19.88     	              38.99 
+         27.02    	               19.10 
+         27.83     	              36.68 
+         19.89     	              38.23 
+         18.81     	              38.80 
+         18.52     	              39.09 
+         27.13    	               19.17 
+         27.55     	              37.01 
+         19.28     	              38.49 
+         18.88     	              38.53 
+         18.40     	              38.80 
+----Size of encoded video(in k.byte):          546.00 
+----Encoding duration(s):                      1384.38 
+08-Mar-2020 05:15:31: ENCODING FINISHED 
+08-Mar-2020 05:19:29: START ENCODER  
+----Number of frame to encode:                 5 
+----Frame Size:                                288 352 
+----GOP Structure:                             5 
+----Alpha:                                     20.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.14    	               33.25 
+         4.78     	              33.80 
+         4.47     	              34.01 
+         4.60     	              34.17 
+         4.47     	              34.21 
+----Size of encoded video(in k.byte):          26.46 
+----Encoding duration(s):                      82.26 
+08-Mar-2020 05:20:51: ENCODING FINISHED 
+08-Mar-2020 05:25:17: START ENCODER  
+----Number of frame to encode:                 5 
+----Frame Size:                                288 352 
+----GOP Structure:                             5 
+----Alpha:                                     20.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+         4.86     	              33.91 
+         4.49     	              34.12 
+         4.61     	              34.25 
+         4.47     	              34.26 
+----Size of encoded video(in k.byte):          26.58 
+----Encoding duration(s):                      83.93 
+08-Mar-2020 05:26:41: ENCODING FINISHED 

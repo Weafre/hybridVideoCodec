@@ -1,12 +1,13 @@
 %% bit
 bitstream=bitstream2;
-noGOP=4;
-GOPStructure=1;
+noGOP=5;
+GOPStructure=5;
+qu_scale=1;
 blockSize=8;
 frameSize=[288 352];
 noBlock=(frameSize(1)/blockSize) * (frameSize(2)/blockSize);
 noBlock=floor(noBlock);
-qu_scale=0.5;
+
 q_mtx =     [16 11 10 16 24 40 51 61; 
              12 12 14 19 26 58 60 55;
              14 13 16 24 40 57 69 56; 

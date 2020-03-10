@@ -1,19 +1,19 @@
 %% Defining global variables
 totalFrame=100;
-numberOfFrames2Encode = 20;
-GOP = 20;
-startingFrame=4;
+numberOfFrames2Encode = 5;
+GOP = 5;
+startingFrame=2;
 isRemainingFrame = true;
 encodedFrame=0;
 bitstream=[];
 mv_codebook=load('mv_codebook14.mat');
 mv_codebook=mv_codebook.mv_codebook;
-alpha=10;
+alpha=20;
 search=0;%0 means full search, 1 mean 2dlog search
-qu_scale=0.25;
+qu_scale=1;
 frameSize=[288,352];
 %% prepare log file
-fid = fopen('encodingLog.txt', 'a');
+fid = fopen('encodingLog2.txt', 'a');
 if fid == -1
   error('Cannot open log file.');
 end
