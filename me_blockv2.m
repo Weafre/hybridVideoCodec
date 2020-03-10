@@ -6,7 +6,7 @@ function [mv, MSE] = me_blockv2(B, r,c,ref,blocksize,search)
 %    
 %    Returns the MSE associated to the output MV
 %
-search_area=8;
+search_area=14;
 delta1= {[-8 0],[0 8],[0 0],[8 0],[0 -8], };
 %delta2= {[0 0] };
 %delta3= {[0 0] };

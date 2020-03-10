@@ -1,14 +1,15 @@
 %% Defining global variables
 totalFrame=100;
-numberOfFrames2Encode = 5;
-GOP = 5;
+numberOfFrames2Encode = 3;
+GOP = 3;
+video='videos/foreman_cif.yuv';
 startingFrame=2;
 isRemainingFrame = true;
 encodedFrame=0;
 bitstream=[];
 mv_codebook=load('mv_codebook14.mat');
 mv_codebook=mv_codebook.mv_codebook;
-alpha=20;
+alpha=10;
 search=0;%0 means full search, 1 mean 2dlog search
 qu_scale=1;
 frameSize=[288,352];
@@ -19,6 +20,7 @@ if fid == -1
 end
 fprintf(fid, '%s: %s  \n', datestr(now, 0),'START ENCODER');
 fprintf(fid,'----Number of frame to encode:                 %d \n',numberOfFrames2Encode);
+fprintf(fid,['----Video name:                                ' video '\n']);
 fprintf(fid,'----Frame Size:                                %d %d \n',frameSize(1),frameSize(2));
 fprintf(fid,'----GOP Structure:                             %d \n',GOP);
 fprintf(fid,'----Alpha:                                     %4.2f \n',alpha);
@@ -34,7 +36,7 @@ if encodedFrame>=numberOfFrames2Encode
     sprintf('Encoding finished')
     isRemainingFrame=false;
 else 
-    [grayimgs] = getCifYUVframe('videos/foreman_cif.yuv',startingFrame+encodedFrame,GOP,frameSize);
+    [grayimgs] = getCifYUVframe(video,startingFrame+encodedFrame,GOP,frameSize);
     [GOP_bitstream,~,MSEs] = GOP_Encoder(grayimgs,GOP,dict_first_sym,dict_second_sym,mv_codebook,alpha,search,fid,qu_scale);
     encodedFrame = encodedFrame + GOP;
     sprintf('Encoded frame: %d',encodedFrame)

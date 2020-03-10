@@ -172,3 +172,186 @@
 ----Size of encoded video(in k.byte):          26.58 
 ----Encoding duration(s):                      83.93 
 08-Mar-2020 05:26:41: ENCODING FINISHED 
+11-Mar-2020 01:45:04: START ENCODER  
+----Number of frame to encode:                 5 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             5 
+----Alpha:                                     20.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+         4.86     	              33.91 
+         4.49     	              34.12 
+         4.61     	              34.25 
+         4.47     	              34.26 
+----Size of encoded video(in k.byte):          26.58 
+----Encoding duration(s):                      100.87 
+11-Mar-2020 01:46:45: ENCODING FINISHED 
+11-Mar-2020 01:56:29: START ENCODER  
+----Number of frame to encode:                 2 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+         4.66     	              33.97 
+----Size of encoded video(in k.byte):          12.81 
+----Encoding duration(s):                      32.17 
+11-Mar-2020 01:57:01: ENCODING FINISHED 
+11-Mar-2020 01:59:34: START ENCODER  
+----Number of frame to encode:                 2 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+         4.66     	              33.97 
+----Size of encoded video(in k.byte):          12.81 
+----Encoding duration(s):                      31.91 
+11-Mar-2020 02:00:06: ENCODING FINISHED 
+11-Mar-2020 03:02:38: START ENCODER  
+----Number of frame to encode:                 2 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+11-Mar-2020 03:03:05: START ENCODER  
+----Number of frame to encode:                 2 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+         4.66     	              33.97 
+----Size of encoded video(in k.byte):          12.81 
+----Encoding duration(s):                      32.88 
+11-Mar-2020 03:03:38: ENCODING FINISHED 
+11-Mar-2020 03:16:35: START ENCODER  
+----Number of frame to encode:                 2 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+         4.66     	              33.97 
+----Size of encoded video(in k.byte):          12.81 
+----Encoding duration(s):                      33.39 
+11-Mar-2020 03:17:08: ENCODING FINISHED 
+11-Mar-2020 03:18:15: START ENCODER  
+----Number of frame to encode:                 2 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+         4.66     	              33.97 
+----Size of encoded video(in k.byte):          12.81 
+----Encoding duration(s):                      32.13 
+11-Mar-2020 03:18:47: ENCODING FINISHED 
+11-Mar-2020 03:20:52: START ENCODER  
+----Number of frame to encode:                 2 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+         4.66     	              33.97 
+----Size of encoded video(in k.byte):          12.81 
+----Encoding duration(s):                      33.39 
+11-Mar-2020 03:21:26: ENCODING FINISHED 
+11-Mar-2020 03:23:02: START ENCODER  
+----Number of frame to encode:                 2 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+11-Mar-2020 03:24:41: START ENCODER  
+----Number of frame to encode:                 2 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+11-Mar-2020 03:26:13: START ENCODER  
+----Number of frame to encode:                 2 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             2 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+         4.66     	              33.97 
+----Size of encoded video(in k.byte):          12.81 
+----Encoding duration(s):                      32.75 
+11-Mar-2020 03:26:46: ENCODING FINISHED 
+11-Mar-2020 03:27:36: START ENCODER  
+----Number of frame to encode:                 2 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             3 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+11-Mar-2020 03:27:52: START ENCODER  
+----Number of frame to encode:                 3 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             3 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+         4.66     	              33.97 
+         4.33     	              34.21 
+----Size of encoded video(in k.byte):          17.14 
+----Encoding duration(s):                      56.74 
+11-Mar-2020 03:28:49: ENCODING FINISHED 
+11-Mar-2020 03:51:30: START ENCODER  
+----Number of frame to encode:                 3 
+----Video name:                                videos/foreman_cif.yuv
+----Frame Size:                                288 352 
+----GOP Structure:                             3 
+----Alpha:                                     10.00 
+----Search(0 for full search, 1 for 2D Log):   0 
+----Quantization scale:                        1 
+----Size of frame(k.byte)        PSNR
+         8.16    	               33.29 
+         4.66     	              33.97 
+         4.33     	              34.21 
+----Size of encoded video(in k.byte):          17.14 
+----Encoding duration(s):                      56.82 
+11-Mar-2020 03:52:27: ENCODING FINISHED 

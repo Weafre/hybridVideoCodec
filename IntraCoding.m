@@ -16,8 +16,8 @@ bitstream=RLC(quantized_frame,blockSize,dict_first_sym,dict_second_sym);
 rev_quantized_frame=reverse_block_quantizer(quantized_reved_bit_block(:,:,1),blockSize,q_mtx);
 
 XQ=block_idct_frame(rev_quantized_frame,blockSize);
-
-MSE_X=mean( (current_frame(:)-XQ(:)).^2);
+MSE_X=immse(current_frame(:),XQ(:));
+%MSE_X=mean( (current_frame(:)-XQ(:)).^2);
 end
 
 

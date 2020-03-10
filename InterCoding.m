@@ -17,7 +17,13 @@ for i=1:blocksize:size(currentFrame,1)-blocksize+1
         end
     
 end
-MSE=mean( (currentFrame(:)-decodedFrame(:)).^2);
+
+%imshow(decodedFrame()/255)
+
+%decodedFrame(1:10,1:10)
+%colormap(gray(256));
+MSE=immse(currentFrame(:),decodedFrame(:));
+%MSE=mean( (currentFrame(:)-decodedFrame(:)).^2);
 end
 
 

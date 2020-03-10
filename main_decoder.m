@@ -1,7 +1,7 @@
 %% bit
 bitstream=bitstream2;
-noGOP=5;
-GOPStructure=5;
+noGOP=1;
+GOPStructure=3;
 qu_scale=1;
 blockSize=8;
 frameSize=[288 352];
@@ -57,7 +57,6 @@ while isRemainingGOP
     if(frCount==GOPStructure)
         decodedFrames(:,:,GOPCount*GOPStructure+1:GOPCount*GOPStructure+GOPStructure)=GOPDecodedFrames;
         GOPCount=GOPCount+1;
-        
     end
     if(GOPCount==noGOP)
         isRemainingGOP=0;
@@ -66,11 +65,14 @@ while isRemainingGOP
 end
 %% showing images
 figure(1)
-image(uint8(decodedFrames(:,:,2)));
+image(uint8(decodedFrames(:,:,3)));
 colormap(gray(256));
+title('Decoded frame');
 %axis image
 %pause(1/30);
 %% compute psnr
-distored=grayimgs(:,:,2)-decodedFrames(:,:,2);
-psnr=10*log10(255*255*288*352/sum(sum((distored.*distored))))
-
+%distored=grayimgs(:,:,2)-decodedFrames(:,:,2);
+%psnr=10*log10(255*255*288*352/sum(sum((distored.*distored))))
+%%
+%mse=immse(grayimgs(:,:,1),decodedFrames(:,:,1))
+%psnr=10*log10(255*255/mse)

@@ -38,7 +38,7 @@ for i=1:blockSize:frameSize(1)-blockSize+1
                 interFrame(i:i+blockSize-1,j:j+blockSize-1)=tmp;
                 blockCount=blockCount+1;
             else
-                %compute resual
+                %compute residual
                 [seq,id]=inverBitstream(bitstream,currIdx,1,dict_first_sym,dict_second_sym);
                 currIdx=id;
                 [quantizedRe,~]=iRLC(seq,blockSize,[blockSize blockSize],1,1);
